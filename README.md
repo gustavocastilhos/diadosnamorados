@@ -14,9 +14,9 @@
 
 ## 💡 Sobre o Projeto
 
-Cansado dos clichês de Dia dos Namorados? Este projeto subverte as expectativas. Ao abrir o site, o usuário se depara com uma tela cinza e um contrato de **Termos e Condições (EULA)** cheio de jargões jurídicos e regras de relacionamento (como a tributação de batatas fritas 🍟).
+Cansado dos clichês de Dia dos Namorados né? Este projeto supera as expectativas. Ao abrir o site, o usuário se depara com uma tela cinza e um contrato de **Termos e Condições (EULA)** cheio de paradas jurídicas e regras de relacionamento (como a tributação de batatas fritas 🍟).
 
-Apenas após ler tudo (rolar o scroll até o final) e passar por um sistema de validação estressante, a verdadeira surpresa é revelada: o design corporativo some e dá lugar a um cartão romântico animado!
+Apenas após ler tudo (rolar o scroll até o final) e passar por um sistema de validação estressante, a verdadeira surpresa é revelada... o design corporativo some e dá lugar a um cartão romântico super animado!
 
 ## ✨ Funcionalidades (O que tem sob o capô)
 
