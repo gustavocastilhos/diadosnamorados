@@ -277,3 +277,11 @@ body.modo-romantico .cartao-romantico {
 #btn-nao:hover {
     background-color: #c0392b;
 }
+.foto-real {
+    width: 100%; /* Faz a foto ocupar a largura total do espaço */
+    max-height: 250px; /* Limita a altura para não empurrar o texto muito para baixo */
+    object-fit: cover; /* Corta a foto de forma inteligente para não distorcer */
+    border-radius: 10px; /* Deixa as bordinhas arredondadas para combinar com o cartão */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Dá um sombreamento leve e elegante */
+    margin: 20px 0; /* Dá um respiro entre o título e o texto de baixo */
+}
