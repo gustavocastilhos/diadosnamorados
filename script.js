@@ -46,7 +46,7 @@ btnProsseguir.addEventListener('click', () => {
         
         if (contadorDeCliques === 0) {
             // Primeiro clique: Abre a caixinha normal
-            textoCaixa.innerText = "Tem certeza que você leu tudinhokkk?";
+            textoCaixa.innerText = "Tem certeza que você leu tudo?";
             textoCaixa.style.color = "#333";
             textoCaixa.style.fontSize = "18px";
             caixaDeAviso.className = "caixa-visivel";
