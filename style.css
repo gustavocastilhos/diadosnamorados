@@ -285,3 +285,45 @@ body.modo-romantico .cartao-romantico {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Dá um sombreamento leve e elegante */
     margin: 20px 0; /* Dá um respiro entre o título e o texto de baixo */
 }
+.carrosel-container {
+  position: relative;
+  max-width: 100%; 
+  border-radius: 8px; /* Mantém as bordinhas arredondadas originais */
+  overflow: hidden;
+  margin-bottom: 20px; /* Espaço entre a imagem e o texto final */
+}
+
+/* Esconde todas as imagens por padrão */
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Mostra apenas a imagem com a classe 'ativo' */
+.slide.ativo {
+  display: block;
+}
+
+/* Estilo dos botões de passar para o lado */
+.botao-voltar, .botao-avancar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5); /* Fundo transparente */
+  color: #d81b60; /* Cor rosinha para combinar com os corações */
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.botao-voltar:hover, .botao-avancar:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.botao-voltar { left: 10px; }
+.botao-avancar { right: 10px; }

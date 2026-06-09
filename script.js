@@ -93,3 +93,25 @@ btnNao.addEventListener('click', () => {
     //joga o scroll do texto lá pro topo de novo (Punição colossal!)
     caixaContrato.scrollTop = 0; 
 });
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+
+function mudarSlide(direcao) {
+  // Remove a classe 'ativo' da imagem atual
+  slides[slideIndex].classList.remove('ativo');
+  
+  // Calcula o índice da próxima imagem
+  slideIndex += direcao;
+  
+  // Se passar da última imagem, volta para a primeira
+  if (slideIndex >= slides.length) {
+    slideIndex = 0;
+  }
+  // Se voltar antes da primeira, vai para a última
+  if (slideIndex < 0) {
+    slideIndex = slides.length - 1;
+  }
+  
+  // Adiciona a classe 'ativo' na nova imagem
+  slides[slideIndex].classList.add('ativo');
+}
