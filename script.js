@@ -115,3 +115,49 @@ function mudarSlide(direcao) {
   // Adiciona a classe 'ativo' na nova imagem
   slides[slideIndex].classList.add('ativo');
 }
+// --- LÓGICA DO BOTÃO FUJÃO ---
+
+const btnRecusar = document.getElementById('btn-recusar');
+
+// Criamos uma variável para contar as tentativas
+let contadorFugas = 0; 
+
+// Aciona a fuga quando passa o mouse (PC) ou tenta tocar (Celular)
+btnRecusar.addEventListener('mouseover', fugir);
+btnRecusar.addEventListener('touchstart', fugir);
+
+function fugir(evento) {
+    // Evita que o clique acidental no celular funcione
+    evento.preventDefault(); 
+
+    // Adiciona +1 ao contador toda vez que ela tenta clicar
+    contadorFugas++;
+
+    // Quando chegar a 20 tentativas, muda o texto do botão
+    if (contadorFugas === 10) {
+        btnRecusar.innerText = "você não pode recusar!HAHA";
+    }
+      if (contadorFugas === 20) {
+        btnRecusar.innerText = "Desista logo e aceite!";
+    }
+      if (contadorFugas === 30) {
+        btnRecusar.innerText = "ta perdendo seu tempo";
+    }
+        if (contadorFugas === 40) {
+        btnRecusar.innerText = "zzzzzzzzzzzzzz";
+    }
+    // Calcula a largura e altura máximas para o botão não sumir da tela
+    const maxLargura = window.innerWidth - btnRecusar.offsetWidth - 20;
+    const maxAltura = window.innerHeight - btnRecusar.offsetHeight - 20;
+
+    // Gera coordenadas X e Y aleatórias
+    const aleatorioX = Math.floor(Math.random() * maxLargura);
+    const aleatorioY = Math.floor(Math.random() * maxAltura);
+
+    // Muda a posição para 'fixed' para ele flutuar sobre o contrato
+    btnRecusar.style.position = 'fixed';
+    
+    // Aplica as novas coordenadas
+    btnRecusar.style.left = aleatorioX + 'px';
+    btnRecusar.style.top = aleatorioY + 'px';
+}

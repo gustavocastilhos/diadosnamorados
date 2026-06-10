@@ -327,3 +327,18 @@ body.modo-romantico .cartao-romantico {
 
 .botao-voltar { left: 10px; }
 .botao-avancar { right: 10px; }
+
+/* Estilo do botão fujão */
+#btn-recusar {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Ajuste se quiser que fique do mesmo tamanho do outro botão */
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    /* A transição suave cria o efeito de deslizar */
+    transition: left 0.2s ease, top 0.2s ease;
+    /* Z-index alto garante que ele passe por cima de qualquer outro elemento na tela */
+    z-index: 9999; 
+}
