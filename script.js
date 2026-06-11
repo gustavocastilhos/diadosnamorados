@@ -127,8 +127,6 @@ btnRecusar.addEventListener('mouseover', fugir);
 btnRecusar.addEventListener('touchstart', fugir);
 
 function fugir(evento) {
-    // Evita que o clique acidental no celular funcione
-    evento.preventDefault(); 
 
     // Adiciona +1 ao contador toda vez que ela tenta clicar
     contadorFugas++;
@@ -161,3 +159,36 @@ function fugir(evento) {
     btnRecusar.style.left = aleatorioX + 'px';
     btnRecusar.style.top = aleatorioY + 'px';
 }
+function criarChuvaDeCoracoes() {
+    const container = document.querySelector('.visao-romantica');
+    
+    // Trava de segurança: se não achar o container, ele avisa no console (F12)
+    if (!container) {
+        console.log("Container romântico não encontrado!");
+        return;
+    }
+    
+    for (let i = 0; i < 40; i++) {
+        const coracao = document.createElement('div');
+        coracao.classList.add('coracao-fundo');
+        
+        // Agora estamos forçando o emoji aparecer!
+        coracao.innerText = "❤️"; 
+        
+        // Posição aleatória na tela
+        coracao.style.left = Math.random() * 100 + '%';
+        
+        // Tamanho aleatório do emoji
+        const tamanho = (Math.random() * 20 + 10) + 'px';
+        coracao.style.fontSize = tamanho;
+        
+        // Tempos aleatórios para a animação ficar natural
+        coracao.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        coracao.style.animationDelay = (Math.random() * 5) + 's';
+
+        container.appendChild(coracao);
+    }
+}
+
+// Inicia a chuva ao carregar a página
+window.addEventListener('load', criarChuvaDeCoracoes);
