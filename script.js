@@ -60,8 +60,8 @@ btnProsseguir.addEventListener('click', () => {
             caixaDeAviso.className = "caixa-visivel";
             
         } else if (contadorDeCliques === 2) {
-            // Terceiro clique: Aleluia! finalmente mostra a super surpresa super romantica
-            document.body.classList.add('modo-romantico');
+            // Terceiro clique: transição suave + surpresa romântica
+            iniciarTransicaoRomantica();
         }
     }
 });
@@ -159,36 +159,56 @@ function fugir(evento) {
     btnRecusar.style.left = aleatorioX + 'px';
     btnRecusar.style.top = aleatorioY + 'px';
 }
-function criarChuvaDeCoracoes() {
-    const container = document.querySelector('.visao-romantica');
-    
-    // Trava de segurança: se não achar o container, ele avisa no console (F12)
-    if (!container) {
-        console.log("Container romântico não encontrado!");
-        return;
+
+const contenedorParticulas = document.getElementById('contenedor-particulas');
+const visaoRomantica = document.querySelector('.visao-romantica');
+const CORACOES = ['❤', '♥', '💕', '💖'];
+const DURACAO_PARTICULAS_MS = 5000;
+
+function iniciarTransicaoRomantica() {
+    document.body.classList.add('modo-romantico');
+    iniciarParticulasCoracao(DURACAO_PARTICULAS_MS);
+    criarChuvaDeCoracoes();
+}
+
+function criarParticulaCoracao() {
+    const particula = document.createElement('span');
+    particula.className = 'particula-coracao';
+    particula.textContent = CORACOES[Math.floor(Math.random() * CORACOES.length)];
+    particula.style.left = `${Math.random() * 100}%`;
+
+    const tamanho = Math.random();
+    if (tamanho < 0.3) {
+        particula.classList.add('coracao-pequeno');
+    } else if (tamanho > 0.8) {
+        particula.classList.add('coracao-grande');
     }
-    
+
+    const duracao = 2.5 + Math.random() * 2;
+    particula.style.animationDuration = `${duracao}s`;
+
+    contenedorParticulas.appendChild(particula);
+
+    setTimeout(() => particula.remove(), duracao * 1000 + 100);
+}
+
+function iniciarParticulasCoracao(duracaoMs) {
+    const intervalo = setInterval(criarParticulaCoracao, 120);
+
+    setTimeout(() => clearInterval(intervalo), duracaoMs);
+}
+
+function criarChuvaDeCoracoes() {
+    if (!visaoRomantica) return;
+
     for (let i = 0; i < 40; i++) {
         const coracao = document.createElement('div');
         coracao.classList.add('coracao-fundo');
-        
-        // Agora estamos forçando o emoji aparecer!
-        coracao.innerText = "❤️"; 
-        
-        // Posição aleatória na tela
+        coracao.innerText = '❤️';
         coracao.style.left = Math.random() * 100 + '%';
-        
-        // Tamanho aleatório do emoji
-        const tamanho = (Math.random() * 20 + 10) + 'px';
-        coracao.style.fontSize = tamanho;
-        
-        // Tempos aleatórios para a animação ficar natural
+        coracao.style.fontSize = (Math.random() * 20 + 10) + 'px';
         coracao.style.animationDuration = (Math.random() * 4 + 4) + 's';
         coracao.style.animationDelay = (Math.random() * 5) + 's';
-
-        container.appendChild(coracao);
+        visaoRomantica.appendChild(coracao);
     }
 }
-
-// Inicia a chuva ao carregar a página
-window.addEventListener('load', criarChuvaDeCoracoes);
